@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&amp;display=swap');
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+#problema, #solucion, #modulos, #beneficios, #contacto { scroll-margin-top: 84px; }
+
+.font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.section-header {
+    font-size: clamp(1.85rem, 5.5vw, 2.75rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* El formulario vive sobre una sección con texto blanco: forzamos color legible */
+#contact-form input,
+#contact-form textarea,
+#contact-form select {
+    color: #0F172A;
+    background-color: #FFFFFF;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #94A3B8;
+}
+
+.modern-card {
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgb(15 23 42 / 0.1), 0 10px 10px -5px rgb(15 23 42 / 0.04);
+}
+
+.nav-active {
+    color: #14B8A6;
+    font-weight: 600;
+}
+
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+.dashboard-mock {
+    box-shadow: 0 25px 50px -12px rgb(15 23 42 / 0.25);
+}
+
+.module-icon {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modern-card:hover .module-icon {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #0F172A, #14B8A6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.05;
+}
+
+.glass {
+    background: rgba(255,255,255, 0.96);
+    backdrop-filter: blur(20px);
+}
+
+.mini-chart {
+    position: relative;
+    height: 200px;
+}
+
+.nav-scrolled {
+    box-shadow: 0 1px 0 0 rgb(15 23 42 / 0.08);
+}
+
+.fintech-shadow {
+    box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.1);
+}
