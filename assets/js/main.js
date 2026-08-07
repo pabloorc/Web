@@ -559,11 +559,10 @@ function legalFallback(type) {
         title = 'Aviso Legal';
         html = `
             <p><strong>1. Identificación del titular (art. 10 LSSI-CE)</strong><br>
-            Titular: PayFactu S.L.<br>
-            NIF: B-87654321<br>
-            Domicilio social: Calle de la Innovación 42, 28001 Madrid (España)<br>
-            Email de contacto: <strong>info@payfactu.com</strong><br>
-            Datos registrales: inscrita en el Registro Mercantil de Madrid.</p>
+            Titular: Pablo Rodríguez Carrasco<br>
+            NIF: 25600496R<br>
+            Domicilio social: Calle Doctor Castilla del Pino 3, 29400 Ronda, Málaga (España)<br>
+            Email de contacto: <strong>info@payfactu.com</strong><br></p>
             
             <p><strong>2. Objeto</strong><br>
             El presente Aviso Legal regula el acceso, la navegación y el uso del sitio web de PayFactu, así como de los servicios de software (SaaS) de gestión y recobro automatizado de facturas ofrecidos bajo la marca PayFactu. El acceso al sitio web atribuye la condición de usuario e implica la aceptación plena y sin reservas de las condiciones aquí recogidas.</p>
@@ -574,19 +573,22 @@ function legalFallback(type) {
             <p><strong>4. Propiedad intelectual e industrial</strong><br>
             Todos los contenidos del sitio web (textos, imágenes, logotipos, marcas, diseño, código fuente y software) son titularidad de PayFactu S.L. o de terceros licenciantes y están protegidos por la normativa de propiedad intelectual e industrial. Queda prohibida su reproducción, distribución, comunicación pública o transformación, total o parcial, sin autorización expresa y por escrito.</p>
             
-            <p><strong>5. Responsabilidad</strong><br>
+            <p><strong>5. Carácter ilustrativo de las cifras y ejemplos mostrados</strong><br>
+            Las cifras, métricas, importes, porcentajes, capturas de pantalla, paneles, casos de uso, testimonios y demás datos que se muestran en el Sitio con finalidad demostrativa o promocional —incluyendo, a título enunciativo, importes recuperados, número de clientes, plazos de cobro, tasas de recuperación o cualquier indicador de resultados— tienen carácter meramente ilustrativo. Se ofrecen para explicar el funcionamiento y las posibilidades de la Plataforma y no constituyen datos reales, verificados ni auditados, salvo que en el propio contenido se indique expresamente su origen, fecha y fuente. En consecuencia, dichas cifras no constituyen oferta, promesa, garantía ni previsión de resultados, no vinculan a Payfactu y no deben tomarse como base para decisión alguna. Los resultados que cada cliente obtenga dependen de factores ajenos al control de Payfactu (naturaleza y antigüedad de la deuda, solvencia y comportamiento del deudor, calidad de la documentación aportada y configuración del servicio). Conforme a la cláusula de los Términos y Condiciones relativa al objeto del servicio, las obligaciones de Payfactu son de medios y no de resultado. Esta advertencia se dicta en cumplimiento del deber de que las comunicaciones comerciales sean claramente identificables y no induzcan a error (art. 20 de la Ley 34/2002, LSSI-CE), y sin perjuicio del principio de buena fe del art. 7 del Código Civil.              
+            
+            <p><strong>6. Responsabilidad</strong><br>
             PayFactu S.L. no garantiza la disponibilidad ininterrumpida del sitio web y no se hace responsable de los daños y perjuicios derivados de interferencias, virus informáticos, averías o desconexiones ajenas a su control, ni del uso ilícito o inadecuado del sitio por parte de terceros.</p>
             
-            <p><strong>6. Enlaces a terceros</strong><br>
+            <p><strong>7. Enlaces a terceros</strong><br>
             Los enlaces a sitios web de terceros tienen una finalidad meramente informativa. PayFactu S.L. no asume responsabilidad alguna sobre sus contenidos ni sobre sus políticas de privacidad.</p>
             
-            <p><strong>7. Protección de datos</strong><br>
+            <p><strong>8. Protección de datos</strong><br>
             El tratamiento de los datos personales recogidos a través de este sitio web se rige por lo dispuesto en nuestra Política de Privacidad, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).</p>
             
-            <p><strong>8. Legislación aplicable y jurisdicción</strong><br>
+            <p><strong>9. Legislación aplicable y jurisdicción</strong><br>
             El presente Aviso Legal se rige por la legislación española. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de Madrid, salvo que la normativa de consumidores y usuarios establezca otro fuero.</p>
             
-            <p><strong>9. Modificaciones</strong><br>
+            <p><strong>10. Modificaciones</strong><br>
             PayFactu S.L. se reserva el derecho a modificar en cualquier momento el presente Aviso Legal para adaptarlo a novedades legislativas o a cambios en el sitio web.</p>
             
             <p class="text-xs text-slate-400 mt-6">Última actualización: Julio 2026</p>
