@@ -560,7 +560,6 @@ function legalFallback(type) {
         html = `
             <p><strong>1. Identificación del titular (art. 10 LSSI-CE)</strong><br>
             Titular: Pablo Rodríguez Carrasco<br>
-            NIF: 25600496R<br>
             Domicilio social: Calle Doctor Castilla del Pino 3, 29400 Ronda, Málaga (España)<br>
             Email de contacto: <strong>info@payfactu.com</strong><br></p>
             
@@ -596,25 +595,148 @@ function legalFallback(type) {
     } else if (type === 'privacidad') {
         title = 'Política de Privacidad';
         html = `
-            <p><strong>Responsable del tratamiento</strong><br>
-            Pablo Rodríguez Carrasco (NIF 25600496R) es el Responsable del tratamiento de los datos personales recogidos a través de este sitio web.</p>
-            
-            <p><strong>Finalidades</strong><br>
-            • Gestionar solicitudes de información y demo<br>
-            • Prestar el servicio de software de gestión de cobros<br>
-            • Enviar comunicaciones comerciales (con consentimiento)<br>
-            • Cumplir obligaciones legales</p>
-            
-            <p><strong>Legitimación</strong><br>
-            Ejecución de contrato o consentimiento del interesado.</p>
-            
-            <p><strong>Destinatarios</strong><br>
-            No se ceden datos a terceros salvo obligación legal o prestadores necesarios (hosting, email, etc), todos con sede en la UE o garantías adecuadas.</p>
-            
-            <p><strong>Derechos</strong><br>
-            Puede ejercer sus derechos de acceso, rectificación, supresión, etc. enviando email a <strong>info@payfactu.com</strong>.</p>
-            
-            <p class="text-xs text-slate-400 mt-6">Última actualización: Agosto 2026</p>
+            <p><strong>1. Responsable del tratamiento</strong><br>
+Responsable: Pablo Rodríguez Carrasco («Payfactu»)<br>
+Domicilio: Calle Doctor Castilla del Pino 3, 29400 Ronda, Málaga (España)<br>
+Contacto en materia de proteccion de datos: <strong>info@payfactu.com</strong><br>
+Payfactu no ha designado Delegado de Protección de Datos por no concurrir los supuestos del artículo 37 del RGPD ni del artículo 34 de la LOPDGDD. Las consultas sobre el tratamiento de datos pueden dirigirse a la dirección indicada.</p>
+
+<p><strong>2. Los dos roles de Payfactu</strong><br>
+Es esencial entender que Payfactu trata datos personales en dos posiciones distintas:</p>
+
+<p><strong>A) Payfactu como RESPONSABLE del tratamiento</strong> — respecto de:</p>
+
+<ul class="list-disc pl-6 mb-4">
+    <li>Los datos de los <strong>usuarios y personas de contacto de sus Clientes</strong> (acreedores): identificación, datos profesionales, credenciales, facturación del servicio y comunicaciones con Payfactu.</li>
+    <li>Los datos de <strong>visitantes del sitio web</strong> y <strong>potenciales clientes</strong> que contactan con Payfactu.</li>
+</ul>
+
+<p>Esta Política regula estos tratamientos.</p>
+
+<p><strong>B) Payfactu como ENCARGADO del tratamiento</strong> — respecto de:</p>
+
+<ul class="list-disc pl-6 mb-4">
+    <li>Los datos de los <strong>deudores y sus personas de contacto</strong> que cada Cliente carga en la Plataforma para gestionar el cobro de sus facturas.</li>
+</ul>
+
+<p>En este caso, el <strong>responsable es el Cliente (acreedor)</strong> y Payfactu trata los datos exclusivamente siguiendo sus instrucciones, conforme al <strong>Contrato de Encargado de Tratamiento (DPA)</strong> celebrado al amparo del artículo 28 RGPD y del artículo 33 LOPDGDD. Los deudores que deseen ejercer sus derechos respecto de estos datos deben dirigirse al acreedor correspondiente; si se dirigen a Payfactu, esta trasladará la solicitud al responsable sin dilación (véase el apartado 8).</p>
+
+<p><strong>3. Datos que tratamos como responsable</strong></p>
+
+<div class="overflow-x-auto my-5">
+    <table class="w-full min-w-[620px] border-collapse text-left">
+        <thead>
+            <tr class="border-b border-white/50">
+                <th scope="col" class="py-3 pr-5 font-bold">Categoría de interesados</th>
+                <th scope="col" class="py-3 pr-5 font-bold">Datos</th>
+                <th scope="col" class="py-3 font-bold">Procedencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Usuarios de Clientes</td>
+                <td class="py-3 pr-5">Identificación, email, cargo, credenciales, registros de actividad y consentimientos (usuario, fecha, IP, versión aceptada)</td>
+                <td class="py-3">Aportados por el propio usuario o su empresa</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Contactos de facturación</td>
+                <td class="py-3 pr-5">Identificación, email, datos fiscales de la empresa</td>
+                <td class="py-3">Aportados en el alta</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Visitantes web</td>
+                <td class="py-3 pr-5">Datos técnicos de conexión estrictamente necesarios</td>
+                <td class="py-3">Navegación (véase la Política de Cookies)</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Prospectos</td>
+                <td class="py-3 pr-5">Identificación y datos de contacto profesionales</td>
+                <td class="py-3">Aportados por el interesado o fuentes profesionales</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>No se tratan categorías especiales de datos (art. 9 RGPD) ni se realizan tratamientos dirigidos a menores.</p>
+
+<p>Conforme al <strong>artículo 19 LOPDGDD</strong>, el tratamiento de los datos de contacto de personas físicas que presten servicios en una persona jurídica se ampara en el interés legítimo cuando se refiera únicamente a su condición profesional y tenga por finalidad mantener relaciones con la entidad en la que prestan servicios.</p>
+
+<p><strong>4. Finalidades y bases jurídicas (art. 6 RGPD)</strong></p>
+
+<div class="overflow-x-auto my-5">
+    <table class="w-full min-w-[620px] border-collapse text-left">
+        <thead>
+            <tr class="border-b border-white/50">
+                <th scope="col" class="py-3 pr-5 font-bold">Finalidad</th>
+                <th scope="col" class="py-3 font-bold">Base jurídica</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Alta, autenticación y prestación del servicio contratado</td>
+                <td class="py-3">Ejecución de contrato — art. 6.1.b) RGPD</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Facturación del servicio y gestión de cobros al Cliente</td>
+                <td class="py-3">Ejecución de contrato (art. 6.1.b) y cumplimiento de obligaciones legales (art. 6.1.c)</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Registro probatorio de aceptación de documentos legales</td>
+                <td class="py-3">Ejecución de contrato (art. 6.1.b) e interés legítimo (art. 6.1.f), en conexión con los arts. 25 y 46 del Reglamento eIDAS</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Seguridad de la Plataforma, control de accesos y auditoría</td>
+                <td class="py-3">Interés legítimo (art. 6.1.f) y obligaciones del art. 32 RGPD</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Atención de consultas y soporte</td>
+                <td class="py-3">Ejecución de contrato o medidas precontractuales (art. 6.1.b)</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Comunicaciones comerciales sobre servicios propios similares a los contratados</td>
+                <td class="py-3">Art. 21.2 LSSI-CE; en el resto de casos, consentimiento (art. 6.1.a RGPD y art. 21.1 LSSI-CE)</td>
+            </tr>
+            <tr class="border-b border-white/30 align-top">
+                <td class="py-3 pr-5">Atención de derechos y reclamaciones</td>
+                <td class="py-3">Obligación legal (art. 6.1.c)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>Cuando la base sea el interés legítimo, el interesado puede oponerse conforme al artículo 21 RGPD.</p>
+
+<p><strong>5. Destinatarios</strong><br>
+Los datos no se ceden a terceros salvo obligación legal. Para prestar el servicio, Payfactu se apoya en <strong>encargados del tratamiento</strong> (proveedores de infraestructura, pagos, email e inteligencia artificial) recogidos en la <strong>Lista de Subencargados</strong> publicada en la Plataforma, con los que se han celebrado los contratos del artículo 28 RGPD.</p>
+
+<p><strong>6. Transferencias internacionales</strong><br>
+Los datos se alojan en la <strong>Unión Europea</strong>. Algunos proveedores tienen matriz fuera del Espacio Económico Europeo; en tales casos las transferencias se amparan en los instrumentos del Capítulo V del RGPD (decisiones de adecuación o Cláusulas Contractuales Tipo, con medidas suplementarias cuando proceda). El detalle por proveedor consta en la <strong>Lista de Subencargados</strong>. [⚠️ AJUSTA: verificar el instrumento vigente de cada proveedor antes de publicar]</p>
+
+<p><strong>7. Plazos de conservación</strong><br>
+Los datos se conservan durante la vigencia de la relación y, después, <strong>bloqueados</strong> conforme al artículo 32 LOPDGDD durante los plazos de prescripción de las acciones legales aplicables (Código Civil). Los plazos concretos por categoría constan en la <strong>Política de Conservación</strong>.</p>
+
+<p><strong>8. Derechos de los interesados (arts. 15 a 22 RGPD; arts. 13 a 18 LOPDGDD)</strong><br>
+Cualquier interesado puede ejercer los derechos de <strong>acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad</strong>, así como retirar el consentimiento prestado, escribiendo a <strong>privacidad@payfactu.com</strong> [⚠️ AJUSTA] con indicación del derecho ejercido y acreditación razonable de identidad.</p>
+
+<ul class="list-disc pl-6 mb-4">
+    <li>Plazo de respuesta: un mes, prorrogable en los términos del artículo 12.3 RGPD.</li>
+    <li>Si el ejercicio se refiere a datos de <strong>deudores</strong> tratados por Payfactu como encargado, Payfactu trasladará la solicitud al Cliente responsable y le asistirá en su atención, conforme al DPA.</li>
+    <li>El interesado tiene derecho a reclamar ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>), sin perjuicio de la tutela judicial.</li>
+</ul>
+
+<p><strong>9. Decisiones automatizadas</strong><br>
+Payfactu no adopta decisiones basadas únicamente en tratamientos automatizados que produzcan efectos jurídicos sobre los interesados o les afecten significativamente de modo similar (art. 22 RGPD). Los sistemas de IA de la Plataforma operan bajo límites parametrizados por el Cliente y con supervisión humana, conforme a la <strong>Política de IA</strong>.</p>
+
+<p><strong>10. Seguridad</strong><br>
+Payfactu aplica las medidas técnicas y organizativas del artículo 32 RGPD descritas en la <strong>Política de Seguridad</strong>, incluyendo cifrado en tránsito y en reposo, aislamiento por cliente mediante políticas de seguridad a nivel de fila, mínimo privilegio, registro de auditoría y alojamiento en la UE.</p>
+
+<p><strong>11. Información a los deudores</strong><br>
+El responsable de informar a los deudores del tratamiento de sus datos (art. 14 RGPD) es el <strong>Cliente acreedor</strong>. Como medida de apoyo, las comunicaciones de reclamación enviadas a través de la Plataforma incorporan una cláusula informativa básica con la identidad del acreedor responsable y el canal para ejercer derechos (Vía email)</p>
+
+<p><strong>12. Actualizaciones</strong><br>
+Esta Política puede actualizarse. Cada versión se identifica y registra en el sistema de versionado de la Plataforma; los cambios sustanciales se comunicarán a los usuarios registrados.</p>
+
+<p class="text-xs text-slate-400 mt-6">Última actualización: 07 Agosto 2026</p>
         `;
     } else if (type === 'cookies') {
         title = 'Política de Cookies';
