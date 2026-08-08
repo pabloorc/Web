@@ -55,8 +55,8 @@ function initNavbar() {
                 <a href="#solucion" class="py-1.5">La solución</a>
                 <a href="#modulos" class="py-1.5">Cómo funciona</a>
                 <a href="#beneficios" class="py-1.5">Resultados</a>
-                <a href="#contacto" class="py-1.5">Contacto</a>
-                <a href="https://app.payfactu.com/login" class="py-1.5">Acceso clientes</a>
+                <button onclick="scrollToSection('contacto'); document.getElementById('mobile-menu').remove()" 
+                        class="mt-3 w-full bg-slate-900 text-white py-3 rounded-2xl font-semibold">Solicitar demo</button>
             `;
             menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.remove()));
             navbar.appendChild(menu);
@@ -755,7 +755,43 @@ function legalFallback(type) {
 }
 
 const LEGAL_CACHE = {};
+
+// Títulos de respaldo. Los reales llegan de PAYFACTU_CONFIG.LEGAL_DOCS y,
+// en última instancia, del propio documento publicado.
 const LEGAL_TITLES = { aviso: 'Aviso Legal', privacidad: 'Política de Privacidad', cookies: 'Política de Cookies' };
+
+// Claves antiguas ('aviso') → código real del documento ('aviso-legal'),
+// para no romper los enlaces que ya existían.
+const LEGAL_ALIAS = { aviso: 'aviso-legal' };
+
+// Y a la inversa, para poder recurrir a los textos incrustados de
+// legalFallback(), que sigue usando las claves de siempre.
+const LEGAL_FALLBACK_KEY = { 'aviso-legal': 'aviso', privacidad: 'privacidad', cookies: 'cookies' };
+
+const LEGAL_FECHA = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+
+function legalConfig() {
+    return window.PAYFACTU_CONFIG || {};
+}
+
+function legalTitulo(codigo) {
+    const docs = legalConfig().LEGAL_DOCS || {};
+    return docs[codigo] || LEGAL_TITLES[codigo] || 'Documento legal';
+}
+
+/**
+ * URL del documento publicado. Se prefiere LEGAL_BASE (una sola línea de
+ * configuración vale para los nueve documentos); LEGAL_URLS se mantiene
+ * por compatibilidad con la configuración anterior.
+ */
+function legalUrl(codigo, claveOriginal) {
+    const cfg = legalConfig();
+    if (cfg.LEGAL_BASE) {
+        return cfg.LEGAL_BASE.replace(/\/+$/, '') + '/api/legal/' + encodeURIComponent(codigo);
+    }
+    const urls = cfg.LEGAL_URLS || {};
+    return urls[codigo] || urls[claveOriginal] || '';
+}
 
 function extractLegalBody(rawHtml) {
     try {
@@ -768,11 +804,13 @@ function extractLegalBody(rawHtml) {
     }
 }
 
-// Carga el documento legal publicado en el panel de admin (misma fuente que app.payfactu.com).
-async function fetchLegalDoc(type, url) {
-    const res = await fetch(url, { cache: 'no-store', headers: { 'accept': 'application/json, text/html' } });
+// Carga el documento legal publicado en el panel de admin: la misma fila de
+// la base de datos que ve el acreedor al registrarse y que consta en su
+// registro de consentimiento.
+async function fetchLegalDoc(codigo, url) {
+    const res = await fetch(url, { cache: 'no-store', headers: { 'accept': 'application/json' } });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    
+
     const contentType = res.headers.get('content-type') || '';
     if (contentType.includes('json')) {
         const data = await res.json();
@@ -781,15 +819,32 @@ async function fetchLegalDoc(type, url) {
         if (!html) throw new Error('Respuesta JSON sin contenido');
         const looksLikeHtml = /<[a-z][\s\S]*>/i.test(html);
         return {
-            title: doc.title || doc.titulo || LEGAL_TITLES[type],
+            title: doc.title || doc.titulo || legalTitulo(codigo),
             html: looksLikeHtml ? html : '<p>' + escapeHtml(html).replace(/\n{2,}/g, '</p><p>').replace(/\n/g, '<br>') + '</p>',
-            version: doc.version || doc.updated_at || ''
+            version: doc.version || '',
+            updated_at: doc.updated_at || '',
+            canonical: doc.canonical || ''
         };
     }
-    
+
     const body = extractLegalBody(await res.text());
     if (!body) throw new Error('Sin contenido');
-    return { title: LEGAL_TITLES[type], html: body, version: '' };
+    return { title: legalTitulo(codigo), html: body, version: '', updated_at: '', canonical: '' };
+}
+
+function legalPie(doc) {
+    if (!doc.version && !doc.updated_at && !doc.canonical) return '';
+
+    let pie = '<p class="text-xs text-slate-400 mt-8 pt-4 border-t border-slate-200">';
+    if (doc.version) pie += 'Versión ' + escapeHtml(doc.version);
+    if (doc.updated_at) {
+        const d = new Date(doc.updated_at);
+        if (!isNaN(d)) pie += (doc.version ? ' · ' : '') + 'en vigor desde el ' + LEGAL_FECHA.format(d);
+    }
+    if (doc.canonical) {
+        pie += ' · <a href="' + escapeHtml(doc.canonical) + '" target="_blank" rel="noreferrer" class="underline hover:text-slate-600">abrir en una pestaña</a>';
+    }
+    return pie + '</p>';
 }
 
 async function showLegalModal(type) {
@@ -797,47 +852,58 @@ async function showLegalModal(type) {
     const titleEl = document.getElementById('modal-title');
     const contentEl = document.getElementById('modal-content');
     if (!modal || !titleEl || !contentEl) return;
-    
+
+    const codigo = LEGAL_ALIAS[type] || type;
+
     modal.classList.remove('hidden');
     modal.classList.add('flex');
-    
-    const url = ((window.PAYFACTU_CONFIG || {}).LEGAL_URLS || {})[type];
-    
-    if (LEGAL_CACHE[type]) {
-        titleEl.textContent = LEGAL_CACHE[type].title;
-        contentEl.innerHTML = LEGAL_CACHE[type].html;
+
+    if (LEGAL_CACHE[codigo]) {
+        titleEl.textContent = LEGAL_CACHE[codigo].title;
+        contentEl.innerHTML = LEGAL_CACHE[codigo].html;
         return;
     }
-    
+
+    const url = legalUrl(codigo, type);
     if (!url) {
-        const fallback = legalFallback(type);
-        titleEl.textContent = fallback.title;
-        contentEl.innerHTML = fallback.html;
+        mostrarRespaldoLegal(codigo, titleEl, contentEl);
         return;
     }
-    
-    titleEl.textContent = LEGAL_TITLES[type] || '';
-    contentEl.innerHTML = '<p class="text-slate-400">Cargando documento...</p>';
-    
+
+    titleEl.textContent = legalTitulo(codigo);
+    contentEl.innerHTML = '<p class="text-slate-400">Cargando el texto vigente…</p>';
+
     try {
-        const doc = await fetchLegalDoc(type, url);
-        if (doc.version) {
-            doc.html += `<p class="text-xs text-slate-400 mt-6">Versión publicada: ${escapeHtml(doc.version)}</p>`;
-        }
-        LEGAL_CACHE[type] = doc;
+        const doc = await fetchLegalDoc(codigo, url);
+        doc.html += legalPie(doc);
+        LEGAL_CACHE[codigo] = doc;
         titleEl.textContent = doc.title;
         contentEl.innerHTML = doc.html;
     } catch (err) {
         console.warn('[PayFactu] No se pudo cargar el documento legal publicado:', err);
-        // Respaldo sin CORS: mostramos el documento publicado embebido.
-        contentEl.innerHTML = `<iframe src="${escapeHtml(url)}" title="${escapeHtml(LEGAL_TITLES[type] || '')}" class="w-full h-[60vh] rounded-2xl border border-slate-200"></iframe>`;
-        const frame = contentEl.querySelector('iframe');
-        frame.addEventListener('error', () => {
-            const fallback = legalFallback(type);
+        // Ya NO se recurre a un <iframe> apuntando a la URL: esa URL
+        // devuelve JSON, y el navegador lo pintaba en crudo y con las
+        // tildes rotas. Mejor un texto incrustado, o un mensaje honesto.
+        mostrarRespaldoLegal(codigo, titleEl, contentEl);
+    }
+}
+
+function mostrarRespaldoLegal(codigo, titleEl, contentEl) {
+    const clave = LEGAL_FALLBACK_KEY[codigo];
+
+    if (clave && typeof legalFallback === 'function') {
+        const fallback = legalFallback(clave);
+        if (fallback && fallback.html) {
             titleEl.textContent = fallback.title;
             contentEl.innerHTML = fallback.html;
-        });
+            return;
+        }
     }
+
+    titleEl.textContent = legalTitulo(codigo);
+    contentEl.innerHTML =
+        '<p>Este documento no está disponible ahora mismo. Puedes solicitarlo en ' +
+        '<a href="mailto:info@payfactu.com" class="text-emerald-700 underline">info@payfactu.com</a>.</p>';
 }
 
 function hideLegalModal() {
