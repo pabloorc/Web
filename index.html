@@ -36,13 +36,31 @@
 
 
         // --- Textos legales publicados desde tu panel de admin -----------------
-        // URL pública de cada documento (la misma fuente que app.payfactu.com/registro).
-        // Acepta JSON ({title, content_html}) o HTML. Si está vacío o falla,
-        // se muestran los textos incluidos en assets/js/main.js.
+        // Se sirven desde app.payfactu.com/api/legal/{codigo}: la misma fila de
+        // la base de datos que ve el acreedor al registrarse y que consta en su
+        // registro de consentimiento. Si un documento no está publicado todavía,
+        // se cae a los textos incrustados en assets/js/main.js.
+        LEGAL_BASE: "https://app.payfactu.com",
+
+        LEGAL_DOCS: {
+            "aviso-legal":   "Aviso Legal",
+            "privacidad":    "Política de Privacidad",
+            "cookies":       "Política de Cookies",
+            "terminos":      "Términos y Condiciones",
+            "dpa":           "Contrato de Encargado de Tratamiento (DPA)",
+            "uso-aceptable": "Política de Uso Aceptable",
+            "ia":            "Política de Inteligencia Artificial",
+            "subencargados": "Lista de Subencargados",
+            "conservacion":  "Política de Conservación de Datos"
+        },
+
+        // Claves antiguas que main.js ya usaba, para no romper nada.
+        LEGAL_ALIAS: { aviso: "aviso-legal" },
+
         LEGAL_URLS: {
-            aviso: "",
-            privacidad: "",
-            cookies: ""
+            aviso:      "https://app.payfactu.com/api/legal/aviso-legal",
+            privacidad: "https://app.payfactu.com/api/legal/privacidad",
+            cookies:    "https://app.payfactu.com/api/legal/cookies"
         }
     };
     </script>
@@ -678,11 +696,33 @@
                     <div class="text-xs">© 2026 PayFactu - Todos los derechos reservados.</div>
                 </div>
                 
-                <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs">
-                    <a href="#" onclick="showLegalModal('aviso'); return false" class="hover:text-white transition-colors">Aviso Legal</a>
-                    <a href="#" onclick="showLegalModal('privacidad'); return false" class="hover:text-white transition-colors">Política de Privacidad</a>
-                    <a href="#" onclick="showLegalModal('cookies'); return false" class="hover:text-white transition-colors">Política de Cookies</a>
-                    <a href="mailto:info@payfactu.com" class="hover:text-white transition-colors">info@payfactu.com</a>
+                <div class="flex flex-col sm:flex-row gap-x-12 gap-y-6 text-xs">
+                    <div>
+                        <div class="text-slate-500 uppercase tracking-wider mb-3">Legal</div>
+                        <div class="flex flex-col gap-y-2">
+                            <a href="#" onclick="showLegalModal('aviso-legal'); return false" class="hover:text-white transition-colors">Aviso Legal</a>
+                            <a href="#" onclick="showLegalModal('privacidad'); return false" class="hover:text-white transition-colors">Política de Privacidad</a>
+                            <a href="#" onclick="showLegalModal('cookies'); return false" class="hover:text-white transition-colors">Política de Cookies</a>
+                            <a href="#" onclick="showLegalModal('conservacion'); return false" class="hover:text-white transition-colors">Conservación de Datos</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-slate-500 uppercase tracking-wider mb-3">Contrato</div>
+                        <div class="flex flex-col gap-y-2">
+                            <a href="#" onclick="showLegalModal('terminos'); return false" class="hover:text-white transition-colors">Términos y Condiciones</a>
+                            <a href="#" onclick="showLegalModal('dpa'); return false" class="hover:text-white transition-colors">Encargado de Tratamiento (DPA)</a>
+                            <a href="#" onclick="showLegalModal('uso-aceptable'); return false" class="hover:text-white transition-colors">Uso Aceptable</a>
+                            <a href="#" onclick="showLegalModal('ia'); return false" class="hover:text-white transition-colors">Política de IA</a>
+                            <a href="#" onclick="showLegalModal('subencargados'); return false" class="hover:text-white transition-colors">Lista de Subencargados</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-slate-500 uppercase tracking-wider mb-3">Contacto</div>
+                        <div class="flex flex-col gap-y-2">
+                            <a href="mailto:info@payfactu.com" class="hover:text-white transition-colors">info@payfactu.com</a>
+                            <a href="https://app.payfactu.com/registro" target="_blank" rel="noopener" class="hover:text-white transition-colors">Acceso al portal</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -730,5 +770,158 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+
+    <!-- ======================================================================
+         TEXTOS LEGALES DESDE LA BASE DE DATOS
+         Sobrescribe showLegalModal para servir el documento publicado en
+         app.payfactu.com en lugar del texto incrustado en main.js. Así el pie
+         de esta web, la ventana del registro y el consentimiento auditado
+         muestran exactamente el mismo texto: no puede haber dos verdades.
+         Si un documento no está publicado todavía, se cae al comportamiento
+         anterior de main.js.
+         ====================================================================== -->
+    <style>
+        /* Estilos del texto legal renderizado. Derivan de currentColor, así
+           que heredan el color del modal sin tocar styles.css. */
+        .md-legal { line-height: 1.7; overflow-wrap: break-word; }
+        .md-legal > *:first-child { margin-top: 0; }
+        .md-legal > *:last-child { margin-bottom: 0; }
+        .md-legal p { margin: 0 0 0.9em; }
+        .md-legal h1, .md-legal h2, .md-legal h3, .md-legal h4 {
+            font-weight: 600; line-height: 1.3; margin: 1.8em 0 0.6em;
+            letter-spacing: -0.01em; color: #0F172A;
+        }
+        .md-legal h1 { font-size: 1.4rem; }
+        .md-legal h2 { font-size: 1.15rem; }
+        .md-legal h3 { font-size: 1rem; }
+        .md-legal h4 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; }
+        .md-legal hr { border: 0; border-top: 1px solid currentColor; opacity: 0.15; margin: 2em 0; }
+        .md-legal ul, .md-legal ol { margin: 0 0 0.9em; padding-left: 1.35em; }
+        .md-legal ul { list-style: disc; }
+        .md-legal ol { list-style: decimal; }
+        .md-legal ul ul { list-style: circle; }
+        .md-legal ol ol { list-style: lower-alpha; }
+        .md-legal li { margin: 0.25em 0; }
+        .md-legal strong { font-weight: 600; color: #0F172A; }
+        .md-legal em { font-style: italic; }
+        .md-legal del { text-decoration: line-through; opacity: 0.7; }
+        .md-legal a { color: #047857; text-decoration: underline; text-underline-offset: 2px; }
+        .md-legal a:hover { color: #065F46; }
+        .md-legal blockquote {
+            margin: 1em 0; padding: 0.1em 0 0.1em 1em;
+            border-left: 2px solid currentColor; opacity: 0.85;
+        }
+        .md-legal code {
+            font-family: ui-monospace, monospace; font-size: 0.875em;
+            padding: 0.1em 0.35em; border-radius: 4px; background: rgba(15,23,42,0.06);
+        }
+        .md-legal pre {
+            margin: 1em 0; padding: 0.9em 1em; border-radius: 10px;
+            overflow-x: auto; background: rgba(15,23,42,0.05);
+        }
+        .md-legal pre code { padding: 0; background: none; font-size: 0.8125em; }
+        .md-legal-tabla {
+            margin: 1.2em 0; overflow-x: auto;
+            border: 1px solid rgba(15,23,42,0.15); border-radius: 10px;
+        }
+        .md-legal-tabla table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; line-height: 1.55; }
+        .md-legal-tabla th, .md-legal-tabla td {
+            padding: 0.6em 0.85em; text-align: left; vertical-align: top;
+            border-bottom: 1px solid rgba(15,23,42,0.1);
+        }
+        .md-legal-tabla th {
+            font-weight: 600; color: #0F172A; white-space: nowrap;
+            background: rgba(15,23,42,0.04);
+        }
+        .md-legal-tabla tr:last-child td { border-bottom: 0; }
+        .md-legal-tabla td + td, .md-legal-tabla th + th { border-left: 1px solid rgba(15,23,42,0.08); }
+        .md-legal-plano { white-space: pre-wrap; }
+    </style>
+
+    <script>
+    (function () {
+        var CFG = window.PAYFACTU_CONFIG || {};
+        var BASE = CFG.LEGAL_BASE || "https://app.payfactu.com";
+        var DOCS = CFG.LEGAL_DOCS || {};
+        var ALIAS = CFG.LEGAL_ALIAS || {};
+
+        // Se guarda la implementación de main.js como respaldo: los
+        // documentos que todavía no estén publicados seguirán funcionando
+        // con el texto incrustado de siempre.
+        var respaldo = window.showLegalModal;
+
+        var fecha = new Intl.DateTimeFormat("es-ES", {
+            day: "numeric", month: "long", year: "numeric"
+        });
+
+        function elementos() {
+            return {
+                modal: document.getElementById("legal-modal"),
+                titulo: document.getElementById("modal-title"),
+                cuerpo: document.getElementById("modal-content")
+            };
+        }
+
+        window.showLegalModal = function (clave) {
+            var codigo = ALIAS[clave] || clave;
+            var e = elementos();
+
+            if (!e.modal || !e.titulo || !e.cuerpo) {
+                if (respaldo) { respaldo(clave); }
+                return;
+            }
+
+            e.titulo.textContent = DOCS[codigo] || "Documento legal";
+            e.cuerpo.innerHTML =
+                '<p class="text-slate-400">Cargando el texto vigente…</p>';
+            e.modal.classList.remove("hidden");
+
+            fetch(BASE + "/api/legal/" + encodeURIComponent(codigo), {
+                headers: { Accept: "application/json" }
+            })
+                .then(function (r) {
+                    if (!r.ok) { throw new Error("HTTP " + r.status); }
+                    return r.json();
+                })
+                .then(function (d) {
+                    if (!d || !d.content_html) { throw new Error("sin contenido"); }
+
+                    e.titulo.textContent = d.title || e.titulo.textContent;
+
+                    var pie =
+                        '<p class="mt-8 pt-4 border-t border-slate-200 text-xs text-slate-400">' +
+                        "Versión " + (d.version || "—");
+
+                    if (d.updated_at) {
+                        pie += " · en vigor desde el " +
+                               fecha.format(new Date(d.updated_at));
+                    }
+                    if (d.canonical) {
+                        pie += ' · <a href="' + d.canonical +
+                               '" target="_blank" rel="noreferrer" ' +
+                               'class="underline hover:text-slate-600">' +
+                               "abrir en una pestaña</a>";
+                    }
+                    pie += "</p>";
+
+                    e.cuerpo.innerHTML = d.content_html + pie;
+                })
+                .catch(function () {
+                    // Documento aún sin publicar, o la API no responde.
+                    if (respaldo && (clave === "aviso" ||
+                                     clave === "privacidad" ||
+                                     clave === "cookies")) {
+                        respaldo(clave);
+                        return;
+                    }
+                    e.cuerpo.innerHTML =
+                        '<p>Este documento no está disponible ahora mismo. ' +
+                        'Puedes solicitarlo en ' +
+                        '<a href="mailto:info@payfactu.com" ' +
+                        'class="text-emerald-700 underline">info@payfactu.com</a>.</p>';
+                });
+        };
+    })();
+    </script>
 </body>
 </html>
