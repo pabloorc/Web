@@ -55,8 +55,8 @@ function initNavbar() {
                 <a href="#solucion" class="py-1.5">La solución</a>
                 <a href="#modulos" class="py-1.5">Cómo funciona</a>
                 <a href="#beneficios" class="py-1.5">Resultados</a>
-                <button onclick="scrollToSection('contacto'); document.getElementById('mobile-menu').remove()" 
-                        class="mt-3 w-full bg-slate-900 text-white py-3 rounded-2xl font-semibold">Solicitar demo</button>
+                <a href="#contacto" class="py-1.5">Contacto</a>
+                <a href="https://app.payfactu.com/login" class="py-1.5">Contacto</a>
             `;
             menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.remove()));
             navbar.appendChild(menu);
