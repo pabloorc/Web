@@ -3,10 +3,10 @@ let riskChartInstance = null;
 let recoveryChartInstance = null;
 
 let dashboardData = [
-    { id: "F-3842", cliente: "Distribuidora Norte S.L.", importe: 4850, dias: 12, prob: 92, riesgo: "Bajo", accion: "Recordatorio enviado" },
-    { id: "F-3921", cliente: "Comercial Mediterráneo", importe: 12400, dias: 47, prob: 61, riesgo: "Medio", accion: "Seguimiento intensivo" },
-    { id: "F-4015", cliente: "Grupo Industrial López", importe: 7850, dias: 9, prob: 88, riesgo: "Bajo", accion: "Plan de pago propuesto" },
-    { id: "F-4103", cliente: "Servicios Técnicos XYZ", importe: 3200, dias: 68, prob: 34, riesgo: "Alto", accion: "Escalado a jurídico" }
+    { id: "F-3842", cliente: "Distribuidora Norte S.L.", importe: 2850, dias: 12, prob: 92, riesgo: "Bajo", accion: "Recordatorio enviado" },
+    { id: "F-3921", cliente: "Comercial Mediterráneo", importe: 6490, dias: 47, prob: 61, riesgo: "Medio", accion: "Seguimiento intensivo" },
+    { id: "F-4015", cliente: "Grupo Industrial López", importe: 120, dias: 9, prob: 88, riesgo: "Bajo", accion: "Plan de pago propuesto" },
+    { id: "F-4103", cliente: "Servicios Técnicos XYZ", importe: 1850, dias: 68, prob: 34, riesgo: "Alto", accion: "Escalado a jurídico" }
 ];
 
 function scrollToSection(id) {
