@@ -6,7 +6,7 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
 }
 
-#problema, #solucion, #modulos, #beneficios, #contacto { scroll-margin-top: 84px; }
+#problema, #solucion, #modulos, #beneficios, #precios, #contacto { scroll-margin-top: 84px; }
 
 .font-display {
     font-family: 'Space Grotesk', 'Inter', sans-serif;

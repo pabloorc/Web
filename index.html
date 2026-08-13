@@ -77,8 +77,8 @@
     <!-- NAVBAR -->
     <nav id="navbar" class="bg-white border-b border-slate-200 sticky top-0 z-50 transition-all">
         <div class="max-w-screen-2xl mx-auto">
-            <div class="px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
-                <div class="flex items-center gap-x-3">
+            <div class="px-5 md:px-4 py-4 md:py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-2">
                     <div class="flex items-center gap-x-2.5">
                         <div class="w-9 h-9 bg-slate-900 rounded-2xl flex items-center justify-center">
                             <span class="text-white font-bold text-2xl tracking-tighter">P</span>
@@ -90,12 +90,14 @@
                     <div class="hidden md:block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">IA de cobro</div>
                 </div>
 
-                <div class="hidden lg:flex items-center gap-x-6 xl:gap-x-8 text-sm font-medium whitespace-nowrap">
-                    <a href="#problema" class="hover:text-slate-600 transition-colors">El problema</a>
-                    <a href="#solucion" class="hover:text-slate-600 transition-colors">La solución</a>
+                <div class="hidden lg:flex items-center gap-x-3 xl:gap-x-8 text-sm font-medium whitespace-nowrap">
+                    <a href="#problema" class="hover:text-slate-600 transition-colors">Problema</a>
+                    <a href="#solucion" class="hover:text-slate-600 transition-colors">Solución</a>
                     <a href="#modulos" class="hover:text-slate-600 transition-colors">Cómo funciona</a>
                     <a href="#beneficios" class="hover:text-slate-600 transition-colors">Resultados</a>
+                    <a href="#precios" class="hover:text-slate-600 transition-colors">Precio</a>
                     <a href="#contacto" class="hover:text-slate-600 transition-colors">Contacto</a>
+    
                 </div>
 
                 <div class="flex items-center gap-x-3">
@@ -626,6 +628,296 @@
             </div>
         </div>
     </section> -->
+
+    <!-- PRECIO -->
+    <section id="precios" class="max-w-screen-2xl mx-auto px-5 md:px-8 py-12 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto text-center mb-12">
+            <div class="text-emerald-600 font-semibold tracking-[2px] text-sm mb-3">PRECIO</div>
+            <h2 class="section-header tracking-tighter">Cuota fija + comisión el importe recuperado</h2>
+            <p class="mt-4 text-lg text-slate-600">Sin permanencia. Recomendamos elegir plan en según el volumen de expedientes.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+
+            <div class="pf-plan modern-card bg-white border border-slate-200 rounded-3xl p-7 flex flex-col relative" data-plan="essential">
+                <div class="pf-badge hidden absolute -top-3 left-7 bg-emerald-500 text-emerald-950 text-[11px] font-bold tracking-[1px] px-3 py-1 rounded-full">MÁS RENTABLE</div>
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-2xl flex items-center justify-center module-icon">
+                        <i data-lucide="file-text" class="w-5 h-5 text-emerald-600"></i>
+                    </div>
+                    <div class="font-display text-xl">Essential</div>
+                </div>
+                <div class="flex items-baseline gap-x-1.5">
+                    <span class="stat-number text-[44px] font-semibold tracking-tighter leading-none">100</span>
+                    <span class="text-base text-slate-500 font-medium">€/mes</span>
+                    <span class="text-[13px] text-slate-400 font-medium">+ IVA</span>
+                </div>
+                <div class="mt-1.5 text-[15px] text-emerald-600 font-semibold">+ 7% sobre importe recuperado</div>
+                <div class="h-px bg-slate-200 my-5"></div>
+                <div class="flex items-center gap-x-2.5 text-[15px] text-slate-600">
+                    <i data-lucide="folder-open" class="w-4 h-4 text-emerald-600"></i>
+                    <span><strong class="text-slate-900 font-semibold">10</strong> facturas/expedientes activos</span>
+                </div>
+                <a href="https://app.payfactu.com/registro" target="_blank" rel="noopener" class="mt-auto pt-6">
+                    <span class="flex items-center justify-center gap-x-2 border border-slate-300 text-slate-900 font-semibold text-[15px] py-3.5 rounded-2xl">Empezar</span>
+                </a>
+            </div>
+
+            <div class="pf-plan modern-card bg-white border border-slate-200 rounded-3xl p-7 flex flex-col relative" data-plan="professional">
+                <div class="pf-badge hidden absolute -top-3 left-7 bg-emerald-500 text-emerald-950 text-[11px] font-bold tracking-[1px] px-3 py-1 rounded-full">MÁS RENTABLE</div>
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-2xl flex items-center justify-center module-icon">
+                        <i data-lucide="zap" class="w-5 h-5 text-emerald-600"></i>
+                    </div>
+                    <div class="font-display text-xl">Professional</div>
+                </div>
+                <div class="flex items-baseline gap-x-1.5">
+                    <span class="stat-number text-[44px] font-semibold tracking-tighter leading-none">250</span>
+                    <span class="text-base text-slate-500 font-medium">€/mes</span>
+                    <span class="text-[13px] text-slate-400 font-medium">+ IVA</span>
+                </div>
+                <div class="mt-1.5 text-[15px] text-emerald-600 font-semibold">+ 3,50% sobre importe recuperado</div>
+                <div class="h-px bg-slate-200 my-5"></div>
+                <div class="flex items-center gap-x-2.5 text-[15px] text-slate-600">
+                    <i data-lucide="folder-open" class="w-4 h-4 text-emerald-600"></i>
+                    <span><strong class="text-slate-900 font-semibold">50</strong> facturas/expedientes activos</span>
+                </div>
+                <a href="https://app.payfactu.com/registro" target="_blank" rel="noopener" class="mt-auto pt-6">
+                    <span class="flex items-center justify-center gap-x-2 border border-slate-300 text-slate-900 font-semibold text-[15px] py-3.5 rounded-2xl">Empezar</span>
+                </a>
+            </div>
+
+            <div class="pf-plan modern-card bg-white border border-slate-200 rounded-3xl p-7 flex flex-col relative" data-plan="business">
+                <div class="pf-badge hidden absolute -top-3 left-7 bg-emerald-500 text-emerald-950 text-[11px] font-bold tracking-[1px] px-3 py-1 rounded-full">MÁS RENTABLE</div>
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-2xl flex items-center justify-center module-icon">
+                        <i data-lucide="building-2" class="w-5 h-5 text-emerald-600"></i>
+                    </div>
+                    <div class="font-display text-xl">Business</div>
+                </div>
+                <div class="flex items-baseline gap-x-1.5">
+                    <span class="stat-number text-[44px] font-semibold tracking-tighter leading-none">500</span>
+                    <span class="text-base text-slate-500 font-medium">€/mes</span>
+                    <span class="text-[13px] text-slate-400 font-medium">+ IVA</span>
+                </div>
+                <div class="mt-1.5 text-[15px] text-emerald-600 font-semibold">+ 1,50% sobre importe recuperado</div>
+                <div class="h-px bg-slate-200 my-5"></div>
+                <div class="flex items-center gap-x-2.5 text-[15px] text-slate-600">
+                    <i data-lucide="folder-open" class="w-4 h-4 text-emerald-600"></i>
+                    <span><strong class="text-slate-900 font-semibold">200</strong> factuas/expedientes activos</span>
+                </div>
+                <a href="https://app.payfactu.com/registro" target="_blank" rel="noopener" class="mt-auto pt-6">
+                    <span class="flex items-center justify-center gap-x-2 border border-slate-300 text-slate-900 font-semibold text-[15px] py-3.5 rounded-2xl">Empezar</span>
+                </a>
+            </div>
+            <div class="pf-plan modern-card bg-emerald-50 border border-emerald-200 rounded-3xl p-7 flex flex-col relative" data-plan="medida">
+                <div class="pf-badge hidden absolute -top-3 left-7 bg-emerald-500 text-emerald-950 text-[11px] font-bold tracking-[1px] px-3 py-1 rounded-full">MÁS RENTABLE</div>
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="w-10 h-10 bg-white rounded-2xl flex items-center justify-center module-icon">
+                        <i data-lucide="sliders-horizontal" class="w-5 h-5 text-emerald-600"></i>
+                    </div>
+                    <div class="font-display text-xl">A medida</div>
+                </div>
+                <div class="flex items-baseline gap-x-1.5">
+                    <span class="text-2xl font-semibold text-slate-500">&gt;</span>
+                    <span class="stat-number text-[44px] font-semibold tracking-tighter leading-none">500</span>
+                    <span class="text-base text-emerald-700 font-medium">€/mes</span>
+                    <span class="text-[13px] text-emerald-600 font-medium">+ IVA</span>
+                </div>
+                <div class="mt-1.5 text-[15px] text-emerald-700 font-semibold">+ menos del 1,50% sobre recuperado</div>
+                <div class="h-px bg-emerald-200 my-5"></div>
+                <div class="flex items-center gap-x-2.5 text-[15px] text-emerald-700">
+                    <i data-lucide="folder-open" class="w-4 h-4 text-emerald-600"></i>
+                    <span><strong class="text-emerald-900 font-semibold">Más de 200</strong> expedientes activos</span>
+                </div>
+                <a href="#contacto" class="mt-auto pt-6">
+                    <span class="flex items-center justify-center gap-x-2 bg-emerald-900 text-white font-semibold text-[15px] py-3.5 rounded-2xl">Hablar con nosotros<i data-lucide="arrow-right" class="w-5 h-5"></i></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-14 bg-white border border-slate-200 rounded-3xl p-6 md:p-8 fintech-shadow">
+            <div class="flex flex-wrap items-end justify-between gap-4 mb-7">
+                <div>
+                    <h3 class="font-display text-[26px] tracking-tight">Calcula qué plan te sale más a cuenta</h3>
+                    <p class="mt-1.5 text-[15px] text-slate-600">Según el volumen de la deuda, el plan más barato no siempre es el de menor cuota.</p>
+                </div>
+                <div class="flex items-center gap-x-2 text-[13px] text-emerald-600 font-medium">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Cálculo en vivo
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-7">
+                    <div class="flex items-baseline justify-between mb-3.5">
+                        <label for="pf-importe" class="text-[15px] text-slate-600 font-medium">Importe a recuperar al mes (aprox.)</label>
+                        <div class="stat-number text-2xl font-semibold"><span id="pf-importe-val">2.000</span> €</div>
+                    </div>
+                    <input type="range" id="pf-importe" min="2000" max="100000" step="500" value="2000" class="w-full mb-7 accent-emerald-500">
+
+                    <div class="flex items-baseline justify-between mb-3.5">
+                        <label for="pf-expedientes" class="text-[15px] text-slate-600 font-medium">Expedientes activos</label>
+                        <div class="stat-number text-2xl font-semibold" id="pf-exp-val">10</div>
+                    </div>
+                    <input type="range" id="pf-expedientes" min="1" max="200" step="1" value="10" class="w-full accent-emerald-500">
+
+                    <div class="h-px bg-slate-200 mt-7 mb-5"></div>
+                    <div class="text-[13px] font-medium text-slate-500 mb-3">Coste mensual estimado por plan</div>
+                    <div class="space-y-2">
+
+                        <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="essential">
+                            <div class="flex flex-wrap items-baseline gap-x-2.5">
+                                <span class="pf-row-name font-display text-[17px] text-slate-900">Essential</span>
+                                <span class="pf-row-note text-xs text-slate-400"></span>
+                            </div>
+                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                        </div>
+
+                        <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="professional">
+                            <div class="flex flex-wrap items-baseline gap-x-2.5">
+                                <span class="pf-row-name font-display text-[17px] text-slate-900">Professional</span>
+                                <span class="pf-row-note text-xs text-slate-400"></span>
+                            </div>
+                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                        </div>
+
+                        <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="business">
+                            <div class="flex flex-wrap items-baseline gap-x-2.5">
+                                <span class="pf-row-name font-display text-[17px] text-slate-900">Business</span>
+                                <span class="pf-row-note text-xs text-slate-400"></span>
+                            </div>
+                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                        </div>
+
+                        <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="medida">
+                            <div class="flex flex-wrap items-baseline gap-x-2.5">
+                                <span class="pf-row-name font-display text-[17px] text-slate-900">A medida</span>
+                                <span class="pf-row-note text-xs text-slate-400">(Ideal para +200 expedientes o grandes importes) </span>
+                            </div>
+                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white rounded-2xl p-5 md:p-7 flex flex-col">
+                    <div class="text-[13px] font-medium text-slate-400 mb-4">Tu plan más rentable</div>
+                    <div id="pf-plan-nombre" class="font-display text-[40px] tracking-tighter leading-none">Essential</div>
+                    <div id="pf-plan-detalle" class="mt-2.5 text-[15px] text-slate-300 leading-relaxed"></div>
+
+                    <div class="mt-6 space-y-0.5">
+                        <div class="flex flex-wrap gap-1 items-center justify-between px-4 py-3.5 bg-white/[0.06] rounded-t-2xl">
+                            <span class="text-[15px] text-slate-300">Cuota mensual</span>
+                            <span id="pf-cuota" class="stat-number text-[17px] font-semibold">100 €</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1 items-center justify-between px-4 py-3.5 bg-white/[0.06]">
+                            <span class="text-[15px] text-slate-300">Comisión sobre <span id="pf-importe-val2">2.000</span> €</span>
+                            <span id="pf-comision" class="stat-number text-[17px] font-semibold">7% · 140 €</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 items-center justify-between px-4 py-4 bg-emerald-600 rounded-b-2xl">
+                            <span class="text-[15px] font-semibold">Coste estimado al mes</span>
+                            <span id="pf-total" class="stat-number text-[26px] font-semibold tracking-tight">240 € + IVA</span>
+                        </div>
+                    </div>
+
+                    <a id="pf-cta" href="https://app.payfactu.com/registro" target="_blank" rel="noopener" class="mt-auto pt-6">
+                        <span class="flex items-center justify-center gap-x-2 bg-white text-slate-900 font-semibold text-base py-4 rounded-2xl"><span id="pf-cta-label">Empezar con Essential</span><i data-lucide="arrow-right" class="w-5 h-5"></i></span>
+                    </a>
+
+                    <p class="mt-4 text-center text-xs leading-relaxed text-slate-400 italic">Cálculo orientativo sobre los importes que llegues a recuperar. No constituye oferta, promesa ni garantía de resultados.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        (function () {
+            var MAX_EXP = 200, LIM_IMPORTE = 100000;
+            var PLANES = [
+                { id: 'essential', max: 10, nombre: 'Essential', cuota: 100, pct: 7 },
+                { id: 'professional', max: 50, nombre: 'Professional', cuota: 250, pct: 3.5 },
+                { id: 'business', max: 200, nombre: 'Business', cuota: 500, pct: 1.5 }
+            ];
+            var rImporte = document.getElementById('pf-importe');
+            var rExp = document.getElementById('pf-expedientes');
+            if (!rImporte || !rExp) return;
+
+            function num(n) { return n.toLocaleString('es-ES', { useGrouping: 'always', maximumFractionDigits: 0 }); }
+            function eur(n) { return num(n) + ' €'; }
+            function pct(v) { return (v % 1 === 0 ? String(v) : v.toFixed(2).replace('.', ',')) + '%'; }
+
+            function render() {
+                var importe = +rImporte.value, expedientes = +rExp.value;
+                var coste = function (p) { return p.cuota + importe * p.pct / 100; };
+                var porExpedientes = expedientes >= MAX_EXP;
+                var porImporte = importe >= LIM_IMPORTE;
+                var compatibles = PLANES.filter(function (p) { return expedientes <= p.max; });
+                var plan = (porExpedientes || porImporte || !compatibles.length) ? null
+                    : compatibles.reduce(function (a, b) { return coste(b) < coste(a) ? b : a; });
+                var ganador = plan ? plan.id : 'medida';
+                var menorCuota = compatibles[0];
+                var ahorro = plan && menorCuota && plan !== menorCuota ? coste(menorCuota) - (plan.cuota + importe * plan.pct / 100) : 0;
+
+                document.getElementById('pf-importe-val').textContent = num(importe);
+                document.getElementById('pf-importe-val2').textContent = num(importe);
+                document.getElementById('pf-exp-val').textContent = expedientes;
+
+                document.querySelectorAll('#precios .pf-plan').forEach(function (card) {
+                    var best = card.getAttribute('data-plan') === ganador;
+                    var medida = card.getAttribute('data-plan') === 'medida';
+                    card.classList.toggle('border-emerald-500', best);
+                    card.classList.toggle('ring-4', best);
+                    card.classList.toggle('ring-emerald-500/15', best);
+                    card.classList.toggle('border-slate-200', !best && !medida);
+                    card.classList.toggle('border-emerald-200', !best && medida);
+                    card.querySelector('.pf-badge').classList.toggle('hidden', !best);
+                });
+
+                document.querySelectorAll('#precios .pf-row').forEach(function (row) {
+                    var id = row.getAttribute('data-plan');
+                    var p = PLANES.filter(function (x) { return x.id === id; })[0];
+                    var best = id === ganador;
+                    var apto = p ? (!porExpedientes && !porImporte && expedientes <= p.max) : !plan;
+                    var nota = best ? 'más rentable'
+                        : p ? (expedientes > p.max ? 'máx. ' + p.max + ' expedientes'
+                            : apto ? '' : porExpedientes ? 'desde 200 expedientes → a medida' : 'volumen fuera de plan')
+                        : 'más de 200 expedientes';
+                    row.querySelector('.pf-row-note').textContent = nota;
+                    row.querySelector('.pf-row-cost').textContent = p ? (apto ? eur(coste(p)) : '—') : 'a consultar';
+                    row.classList.toggle('bg-emerald-50', best);
+                    row.classList.toggle('border-emerald-500', best);
+                    row.classList.toggle('bg-white', !best);
+                    row.classList.toggle('border-slate-200', !best);
+                    row.querySelector('.pf-row-name').classList.toggle('text-slate-400', !apto && !best);
+                    row.querySelector('.pf-row-name').classList.toggle('text-slate-900', apto || best);
+                    row.querySelector('.pf-row-note').classList.toggle('text-emerald-600', best);
+                    row.querySelector('.pf-row-cost').classList.toggle('text-emerald-800', best);
+                });
+
+                var detalle = plan
+                    ? plan.cuota + ' €/mes + ' + pct(plan.pct) + ' sobre importe recuperado · hasta ' + plan.max + ' expedientes activos.'
+                        + (ahorro > 0 ? ' Con este volumen ahorras ' + eur(ahorro) + ' al mes frente a ' + menorCuota.nombre + '.' : '')
+                    : porExpedientes
+                        ? 'Con 200 o más expedientes activos, condiciones a medida: por encima de 500 €/mes y por debajo del 1,50% sobre importe recuperado.'
+                        : 'Con este volumen de recobro sale más rentable una tarifa a medida: por encima de 500 €/mes y por debajo del 1,50% sobre importe recuperado.';
+
+                document.getElementById('pf-plan-nombre').textContent = plan ? plan.nombre : 'A medida';
+                document.getElementById('pf-plan-detalle').textContent = detalle;
+                document.getElementById('pf-cuota').textContent = plan ? eur(plan.cuota) : '> 500 €';
+                document.getElementById('pf-comision').textContent = plan ? pct(plan.pct) + ' · ' + eur(importe * plan.pct / 100) : '< 1,50%';
+                document.getElementById('pf-total').textContent = plan ? eur(plan.cuota + importe * plan.pct / 100) + ' + IVA' : 'A medida';
+
+                var cta = document.getElementById('pf-cta');
+                cta.setAttribute('href', plan ? 'https://app.payfactu.com/registro' : '#contacto');
+                if (plan) { cta.setAttribute('target', '_blank'); } else { cta.removeAttribute('target'); }
+                document.getElementById('pf-cta-label').textContent = plan ? 'Empezar con ' + plan.nombre : 'Hablar con nosotros';
+            }
+
+            rImporte.addEventListener('input', render);
+            rExp.addEventListener('input', render);
+            render();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        })();
+        </script>
+    </section>
 
     <!-- CTA + FORM -->
     <section id="contacto" class="max-w-screen-2xl mx-auto px-5 md:px-8 py-16 bg-emerald-900 text-white">

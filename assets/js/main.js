@@ -55,6 +55,7 @@ function initNavbar() {
                 <a href="#solucion" class="py-1.5">La solución</a>
                 <a href="#modulos" class="py-1.5">Cómo funciona</a>
                 <a href="#beneficios" class="py-1.5">Resultados</a>
+                <a href="#precios" class="py-1.5">Precio</a>
                 <a href="#contacto" class="py-1.5">Contacto</a>
                 <button onclick="location.href='https://app.payfactu.com/login'; document.getElementById('mobile-menu').remove()" class="mt-3 w-full bg-slate-900 text-white py-3 rounded-2xl font-semibold">Acceso Clientes</button>
             `;
