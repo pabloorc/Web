@@ -741,7 +741,7 @@
             <div class="flex flex-wrap items-end justify-between gap-4 mb-7">
                 <div>
                     <h3 class="font-display text-[26px] tracking-tight">Calcula qué plan te sale más a cuenta</h3>
-                    <p class="mt-1.5 text-[15px] text-slate-600">Según el volumen de la deuda, el plan más barato no siempre es el de menor cuota.</p>
+                    <p class="mt-1.5 text-[15px] text-slate-600">Según el volumen de la deuda, el plan más barato no siempre es el de menor cuota. </p>
                 </div>
                 <div class="flex items-center gap-x-2 text-[13px] text-emerald-600 font-medium">
                     <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Cálculo en vivo
@@ -751,13 +751,13 @@
             <div class="grid lg:grid-cols-2 gap-6 items-stretch">
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-7">
                     <div class="flex items-baseline justify-between mb-3.5">
-                        <label for="pf-importe" class="text-[15px] text-slate-600 font-medium">Importe a recuperar al mes (aprox.)</label>
-                        <div class="stat-number text-2xl font-semibold"><span id="pf-importe-val">2.000</span> €</div>
+                        <label for="pf-importe" class="text-[14px] text-slate-600 font-medium">Importe mensual a recuperar (aprox.)</label>
+                        <div class="stat-number text-2xl font-semibold"><span id="pf-importe-val">2.000</span>€</div>
                     </div>
                     <input type="range" id="pf-importe" min="2000" max="100000" step="500" value="2000" class="w-full mb-7 accent-emerald-500">
 
                     <div class="flex items-baseline justify-between mb-3.5">
-                        <label for="pf-expedientes" class="text-[15px] text-slate-600 font-medium">Expedientes activos</label>
+                        <label for="pf-expedientes" class="text-[14px] text-slate-600 font-medium">Expedientes activos</label>
                         <div class="stat-number text-2xl font-semibold" id="pf-exp-val">10</div>
                     </div>
                     <input type="range" id="pf-expedientes" min="1" max="200" step="1" value="10" class="w-full accent-emerald-500">
@@ -771,7 +771,7 @@
                                 <span class="pf-row-name font-display text-[17px] text-slate-900">Essential</span>
                                 <span class="pf-row-note text-xs text-slate-400"></span>
                             </div>
-                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                            <div class="pf-row-cost stat-number text-[14px] font-semibold text-slate-900">—</div>
                         </div>
 
                         <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="professional">
@@ -779,7 +779,7 @@
                                 <span class="pf-row-name font-display text-[17px] text-slate-900">Professional</span>
                                 <span class="pf-row-note text-xs text-slate-400"></span>
                             </div>
-                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                            <div class="pf-row-cost stat-number text-[14px] font-semibold text-slate-900">—</div>
                         </div>
 
                         <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="business">
@@ -787,7 +787,7 @@
                                 <span class="pf-row-name font-display text-[17px] text-slate-900">Business</span>
                                 <span class="pf-row-note text-xs text-slate-400"></span>
                             </div>
-                            <div class="pf-row-cost stat-number text-[17px] font-semibold text-slate-900">—</div>
+                            <div class="pf-row-cost stat-number text-[14px] font-semibold text-slate-900">—</div>
                         </div>
 
                         <div class="pf-row flex flex-wrap gap-1.5 items-center justify-between px-4 py-3.5 rounded-2xl bg-white border border-slate-200" data-plan="medida">
@@ -801,7 +801,7 @@
                 </div>
 
                 <div class="bg-slate-900 text-white rounded-2xl p-5 md:p-7 flex flex-col">
-                    <div class="text-[13px] font-medium text-slate-400 mb-4">Tu plan más rentable</div>
+                    <div class="text-[13px] font-medium text-slate-400 mb-4">Tu plan más rentable:</div>
                     <div id="pf-plan-nombre" class="font-display text-[40px] tracking-tighter leading-none">Essential</div>
                     <div id="pf-plan-detalle" class="mt-2.5 text-[15px] text-slate-300 leading-relaxed"></div>
 
