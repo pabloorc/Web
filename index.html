@@ -831,7 +831,7 @@
 
         <script>
         (function () {
-            var MAX_EXP = 200, LIM_IMPORTE = 100000;
+            var MAX_EXP = 200, LIM_IMPORTE = 40500;
             var PLANES = [
                 { id: 'essential', max: 10, nombre: 'Essential', cuota: 100, pct: 7 },
                 { id: 'professional', max: 50, nombre: 'Professional', cuota: 250, pct: 3.5 },
@@ -876,13 +876,13 @@
                     var id = row.getAttribute('data-plan');
                     var p = PLANES.filter(function (x) { return x.id === id; })[0];
                     var best = id === ganador;
-                    var apto = p ? (!porExpedientes && !porImporte && expedientes <= p.max) : !plan;
+                    var apto = p ? expedientes <= p.max : !plan;
                     var nota = best ? 'más rentable'
                         : p ? (expedientes > p.max ? 'máx. ' + p.max + ' expedientes'
-                            : apto ? '' : porExpedientes ? 'desde 200 expedientes → a medida' : 'volumen fuera de plan')
+                            : porExpedientes ? 'desde 200 expedientes → a medida' : 'disponible')
                         : 'más de 200 expedientes';
                     row.querySelector('.pf-row-note').textContent = nota;
-                    row.querySelector('.pf-row-cost').textContent = p ? (apto ? eur(coste(p)) : '—') : 'a consultar';
+                    row.querySelector('.pf-row-cost').textContent = p ? (apto ? eur(coste(p)) : '—') : 'consultar';
                     row.classList.toggle('bg-emerald-50', best);
                     row.classList.toggle('border-emerald-500', best);
                     row.classList.toggle('bg-white', !best);
