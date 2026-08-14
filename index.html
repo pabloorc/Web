@@ -897,8 +897,8 @@
                     ? plan.cuota + ' €/mes + ' + pct(plan.pct) + ' sobre importe recuperado · hasta ' + plan.max + ' expedientes activos.'
                         + (ahorro > 0 ? ' Con este volumen ahorras ' + eur(ahorro) + ' al mes frente a ' + menorCuota.nombre + '.' : '')
                     : porExpedientes
-                        ? 'Para más de 200 expedientes activos, ofrecemos condiciones personalizadas más rentables: desde 700€/mes + 0,5%~1% de comisión sobre importe recuperado.'
-                        : 'Con este volumen de recobro sale más rentable una tarifa a medida: desde 700€/mes + 0,5%~1% sobre importe recuperado.';
+                        ? 'Para más de 200 expedientes activos, ofrecemos condiciones personalizadas más rentables: desde 700€/mes + comisión desde 0,5% sobre importe recuperado.'
+                        : 'Con este volumen de recobro sale más rentable una tarifa a medida: desde 700€/mes + comisión desde 0,5% sobre importe recuperado.';
 
                 document.getElementById('pf-plan-nombre').textContent = plan ? plan.nombre : 'A medida';
                 document.getElementById('pf-plan-detalle').textContent = detalle;
