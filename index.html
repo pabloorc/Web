@@ -902,8 +902,8 @@
 
                 document.getElementById('pf-plan-nombre').textContent = plan ? plan.nombre : 'A medida';
                 document.getElementById('pf-plan-detalle').textContent = detalle;
-                document.getElementById('pf-cuota').textContent = plan ? eur(plan.cuota) : '> 500 €';
-                document.getElementById('pf-comision').textContent = plan ? pct(plan.pct) + ' · ' + eur(importe * plan.pct / 100) : '< 1,50%';
+                document.getElementById('pf-cuota').textContent = plan ? eur(plan.cuota) : 'desde 700 €';
+                document.getElementById('pf-comision').textContent = plan ? pct(plan.pct) + ' · ' + eur(importe * plan.pct / 100) : 'desde 0,5%';
                 document.getElementById('pf-total').textContent = plan ? eur(plan.cuota + importe * plan.pct / 100) + ' + IVA' : 'A medida';
 
                 var cta = document.getElementById('pf-cta');
