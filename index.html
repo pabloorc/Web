@@ -741,7 +741,7 @@
             <div class="flex flex-wrap items-end justify-between gap-4 mb-7">
                 <div>
                     <h3 class="font-display text-[26px] tracking-tight">Calcula qué plan te sale más a cuenta</h3>
-                    <p class="mt-1.5 text-[15px] text-slate-600">Según el volumen de la deuda, el plan más económíco no siempre es el de menor cuota. </p>
+                    <p class="mt-1.5 text-[15px] text-slate-600">Según el volumen del importe recuperado, el plan más rentable no siempre es el de menor cuota. La comisión siempre se calcula en base al importe que haya recuperado, no al que tenga pendiente de recuperar o reclamar.</p>
                 </div>
                 <div class="flex items-center gap-x-2 text-[13px] text-emerald-600 font-medium">
                     <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Cálculo en vivo
@@ -751,7 +751,7 @@
             <div class="grid lg:grid-cols-2 gap-6 items-stretch">
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-7">
                     <div class="flex items-baseline justify-between mb-3.5">
-                        <label for="pf-importe" class="text-[14px] text-slate-600 font-medium">Importe mensual a recuperar (aprox.)</label>
+                        <label for="pf-importe" class="text-[14px] text-slate-600 font-medium">Importe mensual recuperado</label>
                         <div class="stat-number text-2xl font-semibold"><span id="pf-importe-val">10000</span>€</div>
                     </div>
                     <input type="range" id="pf-importe" min="2000" max="50000" step="500" value="10000" class="w-full mb-7 accent-emerald-500">
@@ -879,7 +879,7 @@
                     var apto = p ? expedientes <= p.max : !plan;
                     var nota = best ? 'más rentable'
                         : p ? (expedientes > p.max ? 'máx. ' + p.max + ' expedientes'
-                            : porExpedientes ? 'desde 200 expedientes → a medida' : 'disponible')
+                            : porExpedientes ? 'máx. 200 expedientes' : 'disponible')
                         : 'más de 200 expedientes';
                     row.querySelector('.pf-row-note').textContent = nota;
                     row.querySelector('.pf-row-cost').textContent = p ? (apto ? eur(coste(p)) : '—') : 'consultar';
@@ -897,8 +897,8 @@
                     ? plan.cuota + ' €/mes + ' + pct(plan.pct) + ' sobre importe recuperado · hasta ' + plan.max + ' expedientes activos.'
                         + (ahorro > 0 ? ' Con este volumen ahorras ' + eur(ahorro) + ' al mes frente a ' + menorCuota.nombre + '.' : '')
                     : porExpedientes
-                        ? 'Con 200 o más expedientes activos, condiciones a medida: por encima de 500 €/mes y por debajo del 1,50% sobre importe recuperado.'
-                        : 'Con este volumen de recobro sale más rentable una tarifa a medida: por encima de 500 €/mes y por debajo del 1,50% sobre importe recuperado.';
+                        ? 'Con más de 200 expedientes activos, condiciones a medida: desde 700€/mes + 0,5%~1% de comisión sobre importe recuperado.'
+                        : 'Con este volumen de recobro sale más rentable una tarifa a medida: desde de 700 €/mes + 0,5%~1% sobre importe recuperado.';
 
                 document.getElementById('pf-plan-nombre').textContent = plan ? plan.nombre : 'A medida';
                 document.getElementById('pf-plan-detalle').textContent = detalle;
@@ -930,7 +930,7 @@
                 <div class="grid grid-cols-1 gap-5">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1.5">Nombre completo</label>
-                        <input type="text" id="nombre" required placeholder="¿Cómo se llama?" required class="w-full border border-slate-300 focus:border-emerald-500 rounded-2xl px-4 py-3 text-sm outline-none">
+                        <input type="text" id="nombre" required placeholder="¿Cómo se llama?" class="w-full border border-slate-300 focus:border-emerald-500 rounded-2xl px-4 py-3 text-sm outline-none">
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
