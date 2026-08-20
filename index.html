@@ -910,7 +910,7 @@
 
                 var unitario = document.getElementById('pf-unitario');
                 unitario.textContent = plan
-                    ? 'Otra forma de verlo: ' + eur2((plan.cuota + importe * plan.pct / 100) / importe) + ' por cada € que recupere.'
+                    ? 'Visto de otra forma: ' + eur2((plan.cuota + importe * plan.pct / 100) / importe) + ' por cada € que recupere.'
                     : '';
                 unitario.classList.toggle('hidden', !plan);
 
