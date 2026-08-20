@@ -817,6 +817,7 @@
                         <div class="flex flex-wrap gap-1.5 items-center justify-between px-4 py-4 bg-emerald-600 rounded-b-2xl">
                             <span class="text-[15px] font-semibold">Coste estimado al mes</span>
                             <span id="pf-total" class="stat-number text-[26px] font-semibold tracking-tight">240 € + IVA</span>
+                            <p id="pf-unitario" class="w-full mt-1 pt-3 border-t border-white/20 text-xs leading-relaxed italic text-white/85"></p>
                         </div>
                     </div>
 
@@ -843,6 +844,7 @@
 
             function num(n) { return n.toLocaleString('es-ES', { useGrouping: 'always', maximumFractionDigits: 0 }); }
             function eur(n) { return num(n) + ' €'; }
+            function eur2(n) { return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'; }
             function pct(v) { return (v % 1 === 0 ? String(v) : v.toFixed(2).replace('.', ',')) + '%'; }
 
             function render() {
@@ -905,6 +907,12 @@
                 document.getElementById('pf-cuota').textContent = plan ? eur(plan.cuota) : 'desde 700 €';
                 document.getElementById('pf-comision').textContent = plan ? pct(plan.pct) + ' · ' + eur(importe * plan.pct / 100) : 'desde 0,5%';
                 document.getElementById('pf-total').textContent = plan ? eur(plan.cuota + importe * plan.pct / 100) + ' + IVA' : 'A medida';
+
+                var unitario = document.getElementById('pf-unitario');
+                unitario.textContent = plan
+                    ? 'Otra forma de verlo:' + eur2((plan.cuota + importe * plan.pct / 100) / importe) + ' por cada € que recupere.'
+                    : '';
+                unitario.classList.toggle('hidden', !plan);
 
                 var cta = document.getElementById('pf-cta');
                 cta.setAttribute('href', plan ? 'https://app.payfactu.com/registro' : '#contacto');
